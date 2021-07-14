@@ -1,0 +1,15 @@
+.Coin-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+@keyframes spin {
+    from { 
+        transform: rotateY(0deg);
+    }
+    to { 
+        transform: rotateY(360deg);
+    }
+}
