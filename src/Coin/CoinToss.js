@@ -108,13 +108,14 @@ class CoinToss extends Component {
         })
        
     }
-    handleAmountChange = event => {
-        if (event.target.value <= 5000) {
-          this.setState({ amount: event.target.value });
-        } else {
-          alert("A maximum of 100 trillion may be tossed at once.");
-        }
-      };
+    // handleAmountChange = event => {
+    //     if (event.target.value <= 5000) {
+    //       console.log("amount");
+    //       this.setState({ amount: event.target.value });
+    //     } else {
+    //       alert("A maximum of 100 trillion may be tossed at once.");
+    //     }
+    //   };
     handleChange = event => {
         // const { name, amount } = e.target;
         // console.log(amount)
@@ -185,42 +186,9 @@ class CoinToss extends Component {
             {/* description of what to do with this form */}
 
             <form id="addFunds" onSubmit={this.toss}>
-                                <button
-                     type="button"
-                     value="1"
-                     name="add50"
-                     onClick={this.handleAmountChange}
-                   >
-                     100 million
-                   </button>
-                   {/* button to add $100 to account */}
-                   <button
-                     type="button"
-                     value="10"
-                     name="add100"
-                     onClick={this.handleAmountChange}
-                   >
-                     1 trillion
-                   </button>
-                   {/* button to add $250 to account */}
-                   <button
-                     type="button"
-                     value="100"
-                     name="add250"
-                     onClick={this.handleAmountChange}
-                   >
-                     10 trillion
-                   </button>
-                   {/* button to add $500 to account */}
-                   <button
-                     type="button"
-                     value="1000"
-                     name="add500"
-                     onClick={this.handleAmountChange}
-                   >
-                     100 trillion 
-                   </button>                              
-                  <input
+
+              <Button handleAmountChange={this.handleAmountChange} />
+                <input
                 type="text"
                 name="addValue"
                 placeholder="Enter Amount"
@@ -229,16 +197,19 @@ class CoinToss extends Component {
               />
 
                <div style={{ margin: 50 }}>
-              <p>{this.state.value}</p>
-              <div style={{marginLeft: "30rem"}}>
+          
+              <div style={{marginLeft: "40%"}}>
                <Slider min={1} max={10} value={this.state.value} onChange={this.onSliderChange}  style={{width: "40%"}}
-
-              handleStyle={{height: 18,   width: 18,   marginTop: -7, marginLeft: 7,   backgroundColor: "red",   border: 0}}
+                railStyle={{
+                  height: 1
+                }}
+              handleStyle={{height: 18,   width: 18,   marginTop: -7, marginLeft: -7,   backgroundColor: "red",   border: 4}}
               trackStyle={{
                background: "none"
               
           }}
         />
+            <p style={{marginRight: "70%"}}>{this.state.value}</p>
         <br/>
         </div>
       </div>
@@ -306,3 +277,40 @@ export default CoinToss;
   //  <br />
   //  {/* submit button that dynamically renders account amount to */}
   //  {/*increase their account */}
+
+
+//   <button
+//   type="button"
+//   value="1"
+//   name="add50"
+//   onClick={this.handleAmountChange}
+// >
+//   100 million
+// </button>
+// {/* button to add $100 to account */}
+// <button
+//   type="button"
+//   value="10"
+//   name="add100"
+//   onClick={this.handleAmountChange}
+// >
+//   1 trillion
+// </button>
+// {/* button to add $250 to account */}
+// <button
+//   type="button"
+//   value="100"
+//   name="add250"
+//   onClick={this.handleAmountChange}
+// >
+//   10 trillion
+// </button>
+// {/* button to add $500 to account */}
+// <button
+//   type="button"
+//   value="1000"
+//   name="add500"
+//   onClick={this.handleAmountChange}
+// >
+//   100 trillion 
+// </button>  
