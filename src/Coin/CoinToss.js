@@ -6,7 +6,8 @@ import heads from './hellb.png';
 import tails from './hellw.png';
 import background from './background.jpg'
 import ConnectWallet from '../walletConnect'
-import Slider, { createSliderWithTooltip } from "rc-slider";
+
+import SliderBar from "./SliderBar"
 import "rc-slider/assets/index.css";
 
 
@@ -188,6 +189,12 @@ class CoinToss extends Component {
             <form id="addFunds" onSubmit={this.toss}>
 
               <Button handleAmountChange={this.handleAmountChange} />
+              <SliderBar onSliderChange={this.onSliderChange}  value={this.state.value}/>
+
+              <div >
+              <p style={{margin: "auto"}}>{this.state.value}</p>
+              </div>
+
                 <input
                 type="text"
                 name="addValue"
@@ -196,23 +203,6 @@ class CoinToss extends Component {
                 onChange={this.handleChange}
               />
 
-               <div style={{ margin: 50 }}>
-          
-              <div style={{marginLeft: "40%"}}>
-               <Slider min={1} max={10} value={this.state.value} onChange={this.onSliderChange}  style={{width: "40%"}}
-                railStyle={{
-                  height: 1
-                }}
-              handleStyle={{height: 18,   width: 18,   marginTop: -7, marginLeft: -7,   backgroundColor: "red",   border: 4}}
-              trackStyle={{
-               background: "none"
-              
-          }}
-        />
-            <p style={{marginRight: "70%"}}>{this.state.value}</p>
-        <br/>
-        </div>
-      </div>
 
               <input
                 type="submit"
